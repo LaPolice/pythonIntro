@@ -1,16 +1,28 @@
-.. Python Intro documentation master file, created by
-   sphinx-quickstart on Mon Sep  1 23:59:59 2014.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+Introduction to Python
+======================
 
-Welcome to Python Intro's documentation!
-========================================
-
-Contents:
-
-
-This is the python intro test
-
-more info
-
-everything about functions
+.. toctree::
+    :maxdepth: 1
+ 
+    content/introduction
+    content/environment
+    content/language
+    content/numbers-arithmetics
+    content/variables
+    content/strings
+    content/lists
+    content/tuples-sets
+    content/collections-loops
+    content/comparisons
+    content/conditionals
+    content/boolean-logic
+    content/dictionaries
+    content/functions
+    content/objects
+    content/modules-import
+    content/modules
+    content/principles
+    content/style
+    content/naming
+    content/good-practices
+    content/resources

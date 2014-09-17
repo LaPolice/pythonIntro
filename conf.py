@@ -40,8 +40,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Python Intro'
-copyright = u'2014, F&G'
+project = u'Introduction to Python'
+copyright = u'2014, Gustavo Ferreira, Joancarles Casasín'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -91,7 +91,7 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'default'
+html_theme = 'nature'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -120,7 +120,7 @@ html_theme = 'default'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['static']
+html_static_path = ['_static']
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
@@ -164,7 +164,7 @@ html_static_path = ['static']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'PythonIntrodoc'
+htmlhelp_basename = 'PythonIntro'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -183,8 +183,8 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'PythonIntro.tex', u'Python Intro Documentation',
-   u'F\\&G', 'manual'),
+  ('index', 'PythonIntro.tex', u'Introduction to Python',
+   u'Gustavo Ferreira, Joancarles Casasín', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -213,8 +213,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'pythonintro', u'Python Intro Documentation',
-     [u'F&G'], 1)
+    ('index', 'pythonintro', u'Introduction to Python',
+     [u'Gustavo Ferreira, Joancarles Casasín'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -227,8 +227,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'PythonIntro', u'Python Intro Documentation',
-   u'F&G', 'PythonIntro', 'One line description of project.',
+  ('index', 'PythonIntro', u'Introduction to Python',
+   u'Gustavo Ferreira, Joancarles Casasín', 'PythonIntro', 'Brief instruction to the Python programming language.',
    'Miscellaneous'),
 ]
 
@@ -240,3 +240,45 @@ texinfo_documents = [
 
 # How to display URL addresses: 'footnote', 'no', or 'inline'.
 #texinfo_show_urls = 'footnote'
+
+
+## -- Custom functions : copied from the DrawBot Docs --------------------------
+
+import posixpath
+
+# import inspect
+
+from sphinx import addnodes
+from sphinx.directives.code import LiteralInclude
+from sphinx.writers.html import HTMLTranslator
+
+def visit_download_reference(self, node):
+    if node.hasattr('filename'):
+        data = dict(
+            urlPath=posixpath.join(self.builder.dlpath, node['filename']),
+            fileName=node['filename']
+            )
+        self.body.append('<div class="downloadlink"><a class="reference internal" href="%(urlPath)s">open or download this file: %(fileName)s</a></div>' % data)
+        node.clear()
+
+def depart_download_reference(self, node):
+    pass
+
+HTMLTranslator.visit_download_reference = visit_download_reference
+HTMLTranslator.depart_download_reference = depart_download_reference
+
+class ShowCode(LiteralInclude):
+    
+    has_content = False
+    required_arguments = 1
+    final_argument_whitespace = True
+
+    def run(self):
+        nodes = super(ShowCode, self).run()
+        node = addnodes.download_reference()
+        node['reftarget'] = self.arguments[0]
+        nodes.append(node)
+        return nodes
+
+def setup(app):
+    app.add_directive('showcode', ShowCode)
