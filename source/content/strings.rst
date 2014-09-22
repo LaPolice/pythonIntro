@@ -1,8 +1,7 @@
-=======
 Strings
 =======
 
-Strings are ordered collections of characters, used mostly to store textual information.
+Strings are ordered collections of characters, and are used mostly to store text.
 
 Strings syntax
 --------------
@@ -22,7 +21,7 @@ Whenever possible, choose the quote which does not appear in the string content 
 Escaping quote characters
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-It is also possible to *escape* the quote character, so it used literally (as a quote character, not as a string delimiter). In Python strings, to escape a character, simply add a backslash before it::
+It is also possible to *escape* the quote character, so it is used literally (as a quote character, not as a string delimiter). In Python strings, to escape a character, simply add a backslash before it::
 
     print "this is a \"string\" too"
     print "\ is an escape character inside strings"
@@ -55,6 +54,8 @@ Operations with strings
 
 Strings can perform a couple of operations, using the same notation as operations with numbers (this is called `operator overloading`_).
 
+.. _operator overloading: https://en.wikipedia.org/wiki/Operator_overloading
+
 Adding strings
 ^^^^^^^^^^^^^^
 
@@ -72,12 +73,12 @@ Multiplying strings
 
 Strings can be multiplied by integers::
 
-    >>> print "hello " * 5
-    hello hello hello hello hello
+    >>> print "spam " * 5
+    spam spam spam spam spam
 
 ...but not by floats (even if they look like an integer)::
 
-    >>> print "hello " * 5.0
+    >>> print "spam " * 5.0
     Traceback (most recent call last):
       File "<untitled>", line 1, in <module>
     TypeError: can't multiply sequence by non-int of type 'float'
@@ -100,7 +101,7 @@ Often, using Unicode characters in normal strings will just work::
 
 .. note::
 
-    In Python 3, all strings are unicode strings. This was one of the biggest changes is the language.
+    One of the biggest changes in Python 3 is Unicode support. In Python 3, all strings are unicode objects.
 
 String formatting
 -----------------
@@ -112,13 +113,13 @@ Formatting strings
 
 This syntax uses the character ``%s`` as a placeholder, and specifies the corresponding parts to be replaced after the string::
 
-    >>> print "formatting %s string" % 'hello'
-    formatting hello string
+    >>> print "spam spam %s spam" % 'eggs'
+    spam spam eggs spam
 
 In the above example, only one part is used when formatting the string. In case there are two or more parts, they need to be wrapped in a tuple::
 
-    >>> print "formatting '%s %s' string" % ( 'hello', 'world' )
-    formatting 'hello world' string
+    >>> print "spam %s spam %s spam spam" % ( 'eggs', 'bacon' )
+    spam eggs spam bacon spam spam
 
 Notice the ``s`` after the ``%`` in ``%s``. This means that the formatting expression treats the values as a string. This is the most used option, but other ones are also available.
 
@@ -130,7 +131,7 @@ The option ``%f`` gives a few options for formatting decimal numbers::
     >>> print "hello %f" % 50.4625
     hello 50.462500
 
-As we can see from the output, it uses 6 decimal places by default. 
+As we can see from the output, ``%f`` uses 6 decimal places by default. 
 
 We can shorten the amount of digits after the dot by a specified amount. Here we are limiting it to two digits only::
 

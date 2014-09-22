@@ -1,13 +1,12 @@
-============
 Environments
 ============
 
-Where can we run Python code?
------------------------------
+Where can I run Python code?
+----------------------------
 
-Python can be used in many different environments. Some applications already come with an embedded Python interpreter, so you can use Python as a scripting language to automate things that you would otherwise have to make by hand.
+Python can be used in many different environments. Some applications already come with an embedded Python interpreter, so you can use Python as a scripting language to automate things that you would otherwise have to make 'by hand' (clicking around in menus and icons).
 
-Most font editors support scripting with Python: `RoboFont`_, `FontLab`_, `Glyphs`_, `FontForge`_.
+Most font editors today support scripting with Python: `RoboFont`_, `FontLab`_, `Glyphs`_, `FontForge`_.
 
 .. _RoboFont : http://robofont.com/
 .. _FontLab : http://fontlab.com/python-scripting/
@@ -21,13 +20,17 @@ Python is also supported by other kinds of applications, such as `Blender`_ and 
 .. _SublimeText : http://www.sublimetext.com/
 .. _DropBox : https://www.dropbox.com/
 
-Python can also by used directly in the command-line, to run scripts or in interactive mode. (more about this `below <#python-in-terminal>`_)
+Python can also be used directly in the Terminal, to run existing scripts or in interactive mode.
 
 Python-powered applications
 ---------------------------
 
 DrawBot
 ^^^^^^^
+
+.. figure:: ../../images/drawbot.png
+   :width: 359 px
+   :align: center
 
 DrawBot is an enviroment to create 2D graphics with Python code. It was originally developed by Just van Rossum to teach programming to design students at the `KABK`_.
 
@@ -38,12 +41,12 @@ The current version of DrawBot is developed in collaboration with Frederik Berla
 .. _DrawBot documentation : http://drawbot.com/
 .. _available on Github : https://github.com/typemytype/drawbot
 
-DrawBot is available only on MacOSX. It also exists as a `RoboFont extension`_ and as an `experimental web-based app`_ (TinyPy), both also made by Frederik.
+DrawBot is available only for Mac OS X. It also exists as a `RoboFont extension`_ and as an `experimental web-based app`_ (TinyPy).
 
 .. _RoboFont extension : https://github.com/typemytype/drawBotRoboFontExtension
 .. _experimental web-based app : http://tinypy.appspot.com/
 
-Similar applications have been developed for other enviroments, such as `ShoeBot`_ for Linux and `Spryte`_ for Windows. But the syntax used by these applications can be slightly different, breaking compatibility with DrawBot scripts.
+Similar applications have been developed for other enviroments, such as `ShoeBot`_ for Linux and `Spryte`_ for Windows. But the syntax used by these applications is sometimes different, breaking compatibility with DrawBot scripts.
 
 .. _ShoeBot : http://shoebot.net
 .. _Spryte : http://spryte.hxgraphics.com/
@@ -51,7 +54,11 @@ Similar applications have been developed for other enviroments, such as `ShoeBot
 RoboFont
 ^^^^^^^^
 
-RoboFont itself is written in Python, and has a Python scripting environment. Have a look at the `RoboFont documentation`_ to learn more.
+.. figure:: ../../images/robofont.png
+   :width: 356 px
+   :align: center
+
+RoboFont has a Python scripting environment, and is itself written in Python. Have a look at the `RoboFont documentation`_ to learn more.
 
 .. _RoboFont documentation : http://robofont.com/
 
@@ -93,6 +100,10 @@ The popular font editor Glyphs also has a Python scripting interface. As with Fo
 
 Python in Terminal
 ------------------
+
+.. figure:: ../../images/terminal.png
+   :width: 327 px
+   :align: center
 
 Python can be used directly in a console or command-line interface, outside of an existing application.
 
@@ -168,4 +179,8 @@ The output will be, as expected::
 Python in SublimeText
 ---------------------
 
-It is also possible to run Python cript from inside SublimeText (our favorite code editor). To run a script, use the key combination ``Cmd+B`` — this will start your file in the console at the bottom of the editor.
+.. figure:: ../../images/sublime-text.png
+   :width: 365 px
+   :align: center
+
+It is also possible to run Python scripts from inside SublimeText (our favorite code editor). To run a script, use the key combination ``Cmd+B`` — this will start your file in the console at the bottom of the editor.

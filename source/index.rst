@@ -11,7 +11,8 @@ Introduction to Python
     content/variables
     content/strings
     content/lists
-    content/tuples-sets
+    content/tuples
+    content/sets
     content/collections-loops
     content/comparisons
     content/conditionals

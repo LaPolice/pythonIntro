@@ -1,8 +1,7 @@
-===============
 Language basics
 ===============
 
-Now that you know where to write Python code, it's time to have a look at the Python language.
+Now that we know where to write Python code, let's have a look at the Python language.
 
 The look'n'feel of Python
 -------------------------
@@ -14,21 +13,21 @@ One major difference is that, instead of using braces for grouping statements, P
 For example, instead of writing statements in C like this::
 
     if (a < b) {
-        max = b;
+        mmax = b;
     } else {
-        max = a;
+        mmax = a;
     }
 
 Python dispenses braces altogether, along with the trailing semicolons::
 
     if a < b:
-        max = b
+        mmax = b
     else:
-        max = a
+        mmax = a
 
 .. seealso::
 
-    `Interpreted Languages: A side-by-side reference sheet <http://hyperpolyglot.org/scripting>`_
+    For a more extensive comparison between languages see `Interpreted Languages: A side-by-side reference sheet <http://hyperpolyglot.org/scripting>`_
 
 The ‘print’ statement
 ---------------------
@@ -48,7 +47,7 @@ Comments
 
 Comments are parts of your code that are not executed. They usually contain notes by the programmer who wrote the code, for other programmers who are reading it. But they can also be used to turn parts of code on/off during development.
 
-Comments are marked by a ``#`` sign. Everything after the ``#`` is a comment and it's not executed.::
+Comments are marked by a ``#`` sign. Everything after the ``#`` is a comment and is not executed.::
 
     # my first program!
     print 'hello world'
@@ -64,12 +63,32 @@ Most programming languages have a special object to signify nothing, emptyness. 
 
     a = None
 
-Note that this is different than an ``0``, or an empty string, or an empty list. ``None`` is really the absence of any value.
+Note that this is different than ``0``, or an empty string, or an empty list. ``None`` is the absence of any value.
+
+
+The 'boolean' object
+--------------------
+
+The boolean object is a special object which can have only two values, ``True`` or ``False``. Booleans are used to represent a binary state::
+
+    >>> a = True
+    >>> print type(a)
+    <type 'bool'>
+    >>> b = False
+    >>> print type(b)
+    <type 'bool'>
+
+In Python, boolean values are always written with a capital first letter, so ``true`` or ``false`` will throw an error::
+
+    >>> a = false
+    Traceback (most recent call last):
+      File "<untitled>", line 1, in <module>
+    NameError: name 'false' is not defined
 
 Object types
 ------------
 
-Like in other programming languages, there are different kinds of objects in Python:
+As in other programming languages, there are different kinds of ‘objects’ in Python:
 
 - *strings*
 - *integers*
@@ -82,41 +101,35 @@ Like in other programming languages, there are different kinds of objects in Pyt
 
 Each type of object has its own properties and methods. Strings are used to represent sequences of characters, integers represent real numbers, lists represent ordered collections of items etc.
 
-The ``type()`` function returns the type of an object::
+The built-in function ``type()`` returns the type of a given object::
 
+    >>> # None
     >>> print type(None)
     <type 'NoneType'>
+    >>> # string
     >>> print type('hello')
     <type 'str'>
+    >>> # integer
     >>> print type(123)
     <type 'int'>
+    >>> # floating point
     >>> print type(10.5)
     <type 'float'>
-    >>> print type({})
+    >>> # dictionary
+    >>> print type({'key':'value'})
     <type 'dict'>
+    >>> # boolean
     >>> print type(True)
-    <type 'bool'>
-
-The 'boolean' object
---------------------
-
-The boolean object is a special object which can have only two values, ``True`` or ``False``, representing a binary state. In Pyhton, both boolean values are written always with a capital letter::
-
-    >>> a = True
-    >>> print type(a)
-    <type 'bool'>
-    >>> b = False
-    >>> print type(b)
     <type 'bool'>
 
 Error messages
 --------------
 
-In Python, error messages are objects like anything else – `Exception objects`_. There are different kinds of exceptions, each for one particular situation. When an exception message appears, read it carefully because it usually contains tips that help to understand and solve the problem.
+In Python, error messages are objects like anything else – `Exception objects`_. There are different kinds of exceptions, each for one particular situation. When an exception message appears, read it carefully: it usually contains tips that will help you to understand and solve the problem.
 
 .. _Exception objects : https://docs.python.org/2/library/exceptions.html
 
-Here are a few examples of Exceptions::
+Here are a few examples of Exceptions. Don't worry if you don't understand them yet, just try to familiarize yourself with the different kinds of errors::
 
 NameError
 ^^^^^^^^^
@@ -131,7 +144,7 @@ Happens if we try to use a variable which has not been defined yet::
 ZeroDivisionError
 ^^^^^^^^^^^^^^^^^
 
-Happens if we try to divide a number by zero::
+Happens if we try to divide any number by zero::
 
     >>> print 1 / 0
     Traceback (most recent call last):
@@ -141,7 +154,7 @@ Happens if we try to divide a number by zero::
 IndexError
 ^^^^^^^^^^
 
-Happens when we try to access an item by an index bigger than the length of the collection.
+Happens when we try to access an item by an index bigger than the length of the collection::
 
     >>> L = ''
     >>> print L[1]
@@ -173,7 +186,7 @@ Happens when Python is expecting an indented block and doesn't find one::
         ^
     IndentationError: expected an indented block
 
-And a few other errors:
+And a few other ones:
 
 - ``TypeError``
 - ``AssertionError``

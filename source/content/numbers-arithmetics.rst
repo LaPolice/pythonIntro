@@ -1,8 +1,7 @@
-=======================
 Numbers and arithmetics
 =======================
 
-Now let's a look at the different types of objects in Python to represent numbers.
+Now let's have a look at some objects in Python which are used to represent numbers.
 
 Integers and decimal numbers
 -----------------------------------
@@ -21,7 +20,7 @@ The two main ones are: ``int`` (integers) and ``float`` (decimal numbers)::
 
 The only difference in terms of notation if the use of a period for decimal numbers. A number is a decimal number even if there is no digit after the period::
 
-    >>> # this is a still float
+    >>> # this is still a float
     >>> C = 12.
     >>> type(C)
     <type 'float'>
@@ -56,7 +55,7 @@ If both numbers are integers, the result is also an integer. If at least one of 
 Subtraction
 ^^^^^^^^^^^
 
-Subtracting numbers follows the same logic, but using the ``-`` operator::
+Subtracting numbers follows the same logic, just use the ``-`` operator::
 
     >>> 12 - 8
     4
@@ -86,7 +85,7 @@ Division in Python uses the ``/`` (forward slash) as its operator::
 
 .. warning::
 
-    The default division behavior in Python 2.x is *floor division*, with the division result will rounded down to nearest integer. This can be a bit tricky at first.
+    The default division behavior in Python 2.x is *floor division* — the result is rounded down to the nearest integer. This is usually weird for beginners.
 
 In Python 2.x, if you need the division result as a float, you'll need to convert one of the numbers to float first::
 
@@ -101,7 +100,7 @@ In Python 3, the division operator uses float division as its default. As with o
     >>> 11 / 2
     5.5
 
-Division by zero is not possible and will always raise an error::
+Division by zero is mathematically not possible and will always raise an error::
 
     >>> 1 / 0
     Traceback (most recent call last):
@@ -113,7 +112,7 @@ Integer division can be performed with the special operator ``//``::
     >>> 11 // 2
     5
 
-Finally, use the ``%`` operator to get the rest of division (modulo)::
+Finally, use the ``%`` operator to get the rest of a division (modulo)::
 
     >>> 11 % 2
     1
@@ -134,7 +133,7 @@ Arithmetic operations can be combined into larger statements and calculations::
 
     print 7 + 10 - 100 * 3 / 200 ** 4
 
-Python executes division and multiplication first, and addition and substraction afterwards. If you want to first add or substract, you must put these operations between parentheses -- Python will execute operations between parentheses first::
+Python executes division and multiplication first, and addition and subtraction afterwards. If you want to add or subtract first, you must put these operations between parentheses -- Python will execute operations between parentheses first::
 
     >>> 9 * 9 + 2
     83
@@ -144,12 +143,12 @@ Python executes division and multiplication first, and addition and substraction
 Increment/decrement operators
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Sometimes when writing code it is necessary to increment or decrement a value (to add or subtract from an integer)::
+Sometimes when writing code it is necessary to increment or decrement a value (to add or subtract a value from an integer)::
 
     a = 10
     a = a + 2
 
-In cases like this, it possible to write the same code using the increment ``+=`` operator::
+In cases like this, it possible to write the same line using the increment ``+=`` operator::
 
     # a = a + 2
     a += 2 
@@ -169,9 +168,10 @@ More math
 
 Python can do many other kinds of mathematical calculations, of course. Many of these mathematical functions live in `the math module`_. For example, trigonometric functions such as *sine*, *cosine*, *tangent*; constants such as *pi*, etc.
 
-::
+.. code::
 
-    import math
-    print dir(math)
+    >>> import math
+    >>> print math.pi
+    3.14159265359
 
 .. _the math module : https://docs.python.org/2/library/math.html

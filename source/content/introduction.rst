@@ -1,4 +1,3 @@
-============
 Introduction
 ============
 
@@ -6,6 +5,12 @@ History
 -------
 
 The Python programming language was developed by Guido van Rossum in the late 1980s at the `CWI (Centrum Wiskunde & Informatica)`_ in the Netherlands.
+
+.. figure:: ../../images/Guido-van-Rossum.jpg
+   :width: 282 px
+   :align: center
+
+   Guido van Rossum
 
 Python is a high-level (very abstract) programming language with emphasis on readability. It is free/open-source software and is available for all major platforms.
 
@@ -18,7 +23,7 @@ Python Inside™
 
 The name Python was inspired by `Monty Python`_, the British comediants group. Many Python examples and tutorials use Monty Python-inspired terms such as ``spam`` and ``ni!``.
 
-.. figure:: ../images/003-monty-python-flying-circus-theredlist.jpg
+.. figure:: ../../images/003-monty-python-flying-circus-theredlist.jpg
    :width: 420 px
    :align: center
 

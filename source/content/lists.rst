@@ -1,10 +1,9 @@
-=====
 Lists
 =====
 
 Lists are *ordered* and *mutable* collections in which the same item can appear multiple times. In other programming languages, lists are sometimes called *arrays*.
 
-Python has also other objects for representing collections, with different properties. For example, if you need an ordered but *immutable* collection, use a *tuple* instead. If items need to be unique, use *set* objects. Etc.
+Besides lists, Python has a few other data types to represent collections, with slightly different properties. If you need an ordered but *immutable* collection, use a *tuple* instead of a list. If the items need to be unique, use *set* objects. Etc.
 
 List basics
 -----------
@@ -13,13 +12,14 @@ A list is delimited by square brackets. It can contain different kinds of object
 
     alist = [1, -2, "asdsd", 4.347, 50]
 
-Acessing list items
-^^^^^^^^^^^^^^^^^^^
+Accessing list items
+^^^^^^^^^^^^^^^^^^^^
 
 List items can be accessed by their index. In Python, the first item has index zero::
 
     print alist[0] # first item
-    print alist[1] # second item, etc.
+    print alist[1] # second item
+    print alist[2] # third item
 
 Negative numbers can be used to access items backwards::
 
@@ -29,20 +29,20 @@ Negative numbers can be used to access items backwards::
 Nested lists
 ^^^^^^^^^^^^
 
-Lists can contain other lists (also known as ‘nested’ lists), which can contain other lists, and so on::
+Lists can contain other lists, which can contain other lists, and so on. This is known as ‘nested’ lists::
 
     list_2 = [1, 2, 3, ["a", "b", "c"]]
-    list_3 = [1, 2, 3, ["a", ["deeper"]]]
+    list_3 = [1, 2, 3, ["a", ["A", "B"], "b", "c"]]
 
 Operations with lists
 ^^^^^^^^^^^^^^^^^^^^^
 
-Lists can be added using the ``+`` sign, just like we would do with numbers::
+Lists can be added using the ``+`` operator, just like we would do with numbers::
 
     >>> print alist + ['b', 100]
     [1, -2, 'asdsd', 4.347, 50, 'b', 100]
 
-Lists can also be multiplied by an integer number::
+Lists can also be multiplied by integers::
 
     >>> print alist * 3
     [1, -2, 'asdsd', 4.347, 50, 1, -2, 'asdsd', 4.347, 50, 1, -2, 'asdsd', 4.347, 50]
@@ -61,7 +61,9 @@ Assigning another name to a list doesn’t create a copy, just a new reference t
     [1, -2, 'asdsd', 4.347, 50, -9999]
     [1, -2, 'asdsd', 4.347, 50, -9999]
 
-There are different ways to create a real copy of a list. One of them is to call the ``list`` function to create a new list::
+.. warning:: It is a common beginner's mistake to think that assigning a list to a new variable creates another list. It doesn't! Try to remember this and save yourself a lot of debugging time in the future.
+
+There are different ways to create a real copy of a list. One of them is to use the built-in function ``list()`` to create a new list::
 
     >>> acopy = list(alist)
     >>> acopy.append(9999)
@@ -73,7 +75,7 @@ There are different ways to create a real copy of a list. One of them is to call
 List slicing
 ------------
 
-A *list slice* is a continuous subset of a list. Here's how to create them::
+A *slice* is a continuous range of items in a list. Here's how to get a slice from a list::
 
     >>> print alist
     >>> # get from second to fourth items in a list
@@ -81,7 +83,7 @@ A *list slice* is a continuous subset of a list. Here's how to create them::
     [1, -2, 'asdsd', 4.347, 50]
     ['asdsd', 4.347]
 
-The slicing notation uses list indexes, so use ``0`` to start from the first item, or simply leave the start index out::
+The slicing notation uses list indexes, so use ``0`` to start from the first item, or simply leave the first index out::
 
     >>> # get from first to fourth items
     >>> print alist[0:4]
@@ -90,13 +92,13 @@ The slicing notation uses list indexes, so use ``0`` to start from the first ite
     [1, -2, 'asdsd', 4.347]
     [1, -2, 'asdsd', 4.347]
 
-To finish a slice at the last item, simply leave the end index out::
+To finish a slice at the last item, simply leave out the second index::
 
     >>> # get from third to last items
     >>> print alist[2:]
     ['asdsd', 4.347, 50]
 
-Slicing can also be used to create a copy of the list::
+The slicing notation can also be used to create a copy of a list::
 
     >>> newlist = alist[:]
     >>> newlist.append('hello')
@@ -108,7 +110,7 @@ Slicing can also be used to create a copy of the list::
 String indexes and slices
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Indexes and slices also work with strings, since they are also ordered sequences.
+Indexes and slices also work with strings, after all they are ordered sequences as well.
 
 Characters in a string can be accessed by their index::
 
@@ -132,7 +134,7 @@ New items can be added to a list with the ``append`` method::
     >>> print alist
     [1, -2, 'asdsd', 4.347, 50, 1234]
 
-Similarly, the ``extend`` method can be used to append a list of items::
+Similarly, the ``extend`` method can be used to append a list of items to a another list::
 
     >>> alist.extend(['one', 'two', 'three'])
     >>> print alist
@@ -144,7 +146,7 @@ The ``insert`` method allows you to insert an item in a specific position, using
     >>> print alist
     [1, -2, 'asdsd', 'hello!', 4.347, 50]
 
-Finally, you can also replace a section of another list using the slice notation::
+Finally, the slice notation can be used to replace a section of a list with another list::
 
     >>> alist[2:4] = ['one', 'two', 'three']
     >>> print alist
@@ -153,7 +155,7 @@ Finally, you can also replace a section of another list using the slice notation
 Removing list items
 -------------------
 
-List items can be removed using the ``del`` command, using the item's index::
+List items can be removed using the ``del`` command and the item's index::
 
     >>> L = ['Doc', 'Grumpy', 'Happy', 'Sleepy', 'Bashful', 'Sneezy', 'Dopey']
     >>> del L[0]
@@ -166,7 +168,7 @@ To delete several continuous items, the slice notation can be used::
     >>> print L
     ['Grumpy', 'Sneezy', 'Dopey']
 
-If you don't know the items's index, you can also refer to the item itself with the ``remove`` command::
+If you don't know the index of item, you can use the ``remove`` command and refer to the item itself::
 
     >>> L.remove('Grumpy')
     >>> print L
@@ -175,7 +177,7 @@ If you don't know the items's index, you can also refer to the item itself with 
 'Popping' list items
 ^^^^^^^^^^^^^^^^^^^^
 
-The ``pop`` method removes an item from a list, and at the same time returns it. This is useful when working with stacks of things::
+The ``pop`` method removes an item from a list, and at the same time returns it. This is used to make lists behave like stacks::
 
     >>> fruits = ['apple', 'banana', 'grapefruit', 'kiwi', 'melon', 'papaya', 'mango']
     >>> print fruits.pop()
@@ -227,6 +229,20 @@ Both ``sort`` and ``reverse`` modify the list in-place -- this means that the li
     >>> print L3
     ['Barcelona', 'Berlin', 'Rio de Janeiro', 'Sao Paulo', 'Vienna']
 
+.. warning:: This is another common beginner's mistake: ``sort()`` and ``reverse()`` don't return a value, they modify the lists in place.
+
+In newer Pythons we can use the built-in method ``sorted()``, which returns a sorted copy of the given collection, as an alternative to ``sort()``::
+
+    >>> for L in sorted(L3):
+    ...     print L,
+    Barcelona Berlin Rio de Janeiro Sao Paulo Vienna
+
+A ``reversed()`` iterator is available as well::
+
+    >>> for L in reversed(L3):
+    ...     print L,
+    Vienna Sao Paulo Rio de Janeiro Berlin Barcelona
+
 Creating number sequences
 -------------------------
 
@@ -237,13 +253,13 @@ The following command creates a list of numbers, starting from ``0`` and ending 
     >>> print range(10)
     [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-Sometimes we need to start a sequence with a number different than zero. In this case, we need use ``range`` with two arguments::
+Sometimes we need to start a sequence with a number different than zero. In this case, we need to use ``range`` with two arguments::
 
     >>> # from 5 to 10 (doesn't include 10!)
     >>> print range(5, 10)
     [5, 6, 7, 8, 9]
 
-Finally, we can use a third argument to specify the interval between the numbers::
+Finally, we can use a third argument to specify the interval between the numbers in the sequence::
 
     >>> # from 1 to 19 (doesn't include 19!)
     >>> # in intervals of 3
