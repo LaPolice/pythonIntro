@@ -175,3 +175,7 @@ Python can do many other kinds of mathematical calculations, of course. Many of 
     3.14159265359
 
 .. _the math module : https://docs.python.org/2/library/math.html
+
+.. seealso::
+
+    `Numeric Types — int, float, long, complex <https://docs.python.org/2/library/stdtypes.html#typesnumeric>`_

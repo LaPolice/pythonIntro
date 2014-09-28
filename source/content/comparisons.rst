@@ -83,8 +83,8 @@ To compare the identity between the objects we use the logical operator ``is``::
 
 As we can see, the two objects have different identities -- one is a ``float``, and the other is an ``int``.
 
-The 'truthiness' of values
---------------------------
+Testing 'truthiness'
+--------------------
 
 Every value in every data type in Python can be converted to a boolean. Empty objects are usually converted to ``False``, while anything else is converted to ``True``.
 
@@ -124,4 +124,7 @@ Here are some examples with different data types::
     >>> print bool(None)
     False
 
-.. seealso:: `testing item membership <collections-loops.html#testing-item-membership>`_
+.. seealso::
+
+    - `testing item membership <collections-loops.html#testing-item-membership>`_
+    - `Comparisons <https://docs.python.org/2/library/stdtypes.html#comparisons>`_

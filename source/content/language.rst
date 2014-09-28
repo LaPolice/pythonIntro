@@ -85,10 +85,10 @@ In Python, boolean values are always written with a capital first letter, so ``t
       File "<untitled>", line 1, in <module>
     NameError: name 'false' is not defined
 
-Object types
-------------
+Data types
+----------
 
-As in other programming languages, there are different kinds of ‘objects’ in Python:
+There are several different data types in Python. Here are the main ones:
 
 - *strings*
 - *integers*

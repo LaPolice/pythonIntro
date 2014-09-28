@@ -1,6 +1,8 @@
 Introduction to Python
 ======================
 
+.. image:: ../../images/python_icon.png
+
 .. toctree::
     :maxdepth: 1
  
@@ -18,6 +20,7 @@ Introduction to Python
     content/conditionals
     content/boolean-logic
     content/dictionaries
+    content/builtin-functions
     content/functions
     content/objects
     content/modules-import

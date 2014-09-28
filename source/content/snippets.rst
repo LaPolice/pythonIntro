@@ -1,7 +1,6 @@
 Useful snippets
 ===============
 
------------
 Write files
 -----------
 

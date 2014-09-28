@@ -85,8 +85,8 @@ Dictionaries also have a ``get`` method, which returns ``None`` if the key does 
     >>> print myDict.get('key 4')
     None
 
-Iterating through a dictionary
-------------------------------
+Iterating over a dictionary
+---------------------------
 
 Depending on what is more useful to the problem at hand, we can iterate through a dictionary's keys retrieving their values::
 

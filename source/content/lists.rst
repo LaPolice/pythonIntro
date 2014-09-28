@@ -265,3 +265,9 @@ Finally, we can use a third argument to specify the interval between the numbers
     >>> # in intervals of 3
     >>> print range(1, 19, 3)
     [1, 4, 7, 10, 13, 16]
+
+Splitting and joining lists
+---------------------------
+
+...
+
