@@ -1,7 +1,7 @@
 Introduction to Python
 ======================
 
-.. figure:: ../../images/python_icon.png
+.. figure:: ../images/python_icon.png
 
 .. toctree::
     :maxdepth: 1
